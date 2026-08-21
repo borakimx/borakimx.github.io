@@ -1,0 +1,27 @@
+		*{
+ margin : 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+.background {
+	width: 95%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+h1 {
+	position: absolute;
+	z-index: 1;
+	font-family: sans-serif;
+	font-size: 22px;
+	color: #333;
+}
+
+.bora      { top: 20%; left: 10%; }
+.work      { top: 42%; left: 30%; }
+.travel    { top: 70%; left: 20%; }
+.learning  { top: 22%; left: 58%; }
+.people    { top: 60%; left: 65%; }
