@@ -1,0 +1,191 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 표지 */
+.cover {
+	display: block;
+	cursor: pointer;
+}
+
+/* 공책 — 처음엔 숨김 */
+.notebook {
+	position: relative;
+	display: none;
+}
+
+/* 주소가 #notebook일 때 전환 */
+.notebook:target,
+.notebook:has(:target) {
+	display: block;
+}
+
+.cover:has(+ .notebook:target),
+.cover:has(+ .notebook :target) {
+	display: none;
+}
+
+/* 서브 페이지는 처음부터 보이게 */
+.notebook.page {
+	display: block;
+}
+
+.background {
+	display: block;
+	height: 92vh;
+	width: 45vh;
+	object-fit: cover;
+	max-width: 100%;
+}
+
+/* 목차 */
+.menu {
+	position: absolute;
+	top: 26%;
+	left: 12%;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 1.6em;
+}
+
+.menu a {
+	display: inline-block;
+	align-self: flex-start;
+	font-family: sans-serif;
+	font-size: clamp(11px, 2.4vmin, 18px);
+	color: black;
+	text-decoration: none;
+	background-image: linear-gradient(#cdeaff, #cdeaff);
+	background-repeat: no-repeat;
+	background-size: 0% 42%;
+	background-position: 0 88%;
+	transition: background-size 0.35s, transform 0.25s;
+}
+
+.menu a:hover {
+	background-size: 100% 42%;
+	transform: rotate(-2deg);
+}
+
+/* WORK 창 */
+.frame {
+	position: absolute;
+	top: 8%;
+	left: 8%;
+	width: 76%;
+	height: 84%;
+	z-index: 2;
+	display: none;
+	background-color: white;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.frame:target {
+	display: block;
+}
+
+.frame iframe {
+	width: 143%;
+	height: 143%;
+	border: 0;
+	transform: scale(0.7);
+	transform-origin: top left;
+}
+
+.close {
+	position: absolute;
+	top: 6px;
+	right: 10px;
+	z-index: 3;
+	font-size: 18px;
+	color: black;
+	text-decoration: none;
+}
+
+/* 서브 페이지 */
+.back {
+	position: absolute;
+	top: 10%;
+	left: 8%;
+	z-index: 2;
+	font-family: sans-serif;
+	font-size: clamp(12px, 2.4vmin, 18px);
+	color: dimgray;
+	text-decoration: none;
+}
+
+.back:hover {
+	color: black;
+}
+
+.content {
+	position: absolute;
+	top: 18%;
+	left: 12%;
+	width: 64%;
+	z-index: 1;
+	font-family: sans-serif;
+	color: black;
+}
+
+.content h2 {
+	font-size: clamp(14px, 3vmin, 22px);
+	margin-bottom: 1.2em;
+}
+
+.content p {
+	font-size: clamp(11px, 2.2vmin, 16px);
+	line-height: 1.9;
+}
+
+.trip {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: clamp(10px, 2vmin, 15px);
+}
+
+.travel th,
+.travel td {
+	text-align: left;
+	padding: 0.7em 0;
+	border-bottom: 1px solid #ddd;
+}
+
+.travel th {
+	font-weight: normal;
+	color: dimgray;
+	font-size: 0.85em;
+}
+
+.deco {
+	position: absolute;
+	left: 12%;
+	z-index: 1;
+	font-family: sans-serif;
+	font-size: clamp(9px, 1.8vmin, 13px);
+	color: darkgray;
+	line-height: 1.8;
+	white-space: pre;
+}
+
+.deco.top {
+	top: 14%;
+}
+
+.deco.bottom {
+	top: 74%;
+}
